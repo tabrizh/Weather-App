@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import './SelectCity.scss';
+import React, { useEffect, useState } from "react";
+import "./SelectCity.scss";
 
 type Props = {
   selected: string;
@@ -14,21 +14,22 @@ const Dropdown: React.FC<Props> = ({
 }: Props) => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const options: string[] = [
-    'Lisbon',
-    'London',
-    'Paris',
-    'Berlin',
-    'New York',
-    'Madrid',
+    "Lisbon",
+    "London",
+    "Paris",
+    "Berlin",
+    "New York",
+    "Madrid",
+    "Prague",
   ];
 
   useEffect(() => {
-    !selected ? setSelected(options[0]) : 'Choose a City';
+    !selected && setSelected(options[0]);
   }, []);
 
   return (
     <div className="dropdown">
-      <div className="dropdown-btn" onClick={e => setIsActive(!isActive)}>
+      <div className="dropdown-btn" onClick={(e) => setIsActive(!isActive)}>
         {selected}
         <span>▾</span>
       </div>
@@ -36,7 +37,7 @@ const Dropdown: React.FC<Props> = ({
         <div className="dropdown-content">
           {options.map((option, idx) => (
             <div
-              onClick={e => {
+              onClick={(e) => {
                 setSelected(option);
                 setIsActive(false);
                 callApi(option);

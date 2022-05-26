@@ -41,7 +41,7 @@ const App: React.FC<{}> = () => {
       <div className="weatherContainer">
         <Header />
         <SelectCity callApi={api_call} setFahrenheit={setFahrenheit} />
-        {<Weather weatherData={weatherData} fahrenheit={fahrenheit} />}
+        <Weather weatherData={weatherData} fahrenheit={fahrenheit} />
       </div>
     </div>
   );
